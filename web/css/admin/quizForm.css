@@ -1,0 +1,13 @@
+.sf_admin_form_field_Answers .sf_admin_form_row_inner table,
+.sf_admin_form_field_Prizes .sf_admin_form_row_inner table {
+  width:100%;
+}
+.sf_admin_form_field_Answers .sf_admin_form_row_inner table th,
+.sf_admin_form_field_Prizes .sf_admin_form_row_inner table th {
+  display:none;
+}
+.sf_admin_form_field_Answers .sf_admin_form_row_inner table ul.dm_form_elements,
+.sf_admin_form_field_Prizes .sf_admin_form_row_inner table ul.dm_form_elements {
+  width:97%;
+  margin-bottom:10px;
+}

@@ -1,0 +1,54 @@
+generator:
+  class: dmAdminDoctrineGenerator
+  param:
+    model_class: PiQuizResponse
+    theme: dmAdmin
+    non_verbose_templates: true
+    with_show: false
+    route_prefix: response
+    with_doctrine_route: false
+    config:
+      actions: ~
+      fields:
+        is_winner:
+          label: Winner
+        is_confirmed:
+          label: Confirmed
+      list:
+        display:
+          - '=id'
+          - prize_id
+          - ip
+          - open_answer
+          - is_winner
+          - created_at
+          - updated_at
+          - email
+          - token
+          - is_confirmed
+        sort:
+          - created_at
+          - desc
+        table_method: getAdminListQuery
+        table_count_method: ~
+        sortable: false
+      filter:
+        display:
+          - id
+          - is_winner
+          - is_confirmed
+          - ip
+          - prize_id
+          - open_answer
+          - created_at
+          - updated_at
+          - email
+          - token
+      form:
+        display:
+          NONE: [is_winner, is_confirmed, prize_id]
+          Others: [ip, open_answer, email, token]
+        class: PiQuizResponseAdminForm
+        fields: {  }
+      edit: ~
+      new: ~

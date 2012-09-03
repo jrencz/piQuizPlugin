@@ -1,0 +1,32 @@
+Other:
+  Quiz:
+    quiz:
+      model: PiQuiz
+      name: "Quiz|Quizzes"
+      page: true
+      credentials: pi_quiz_creator
+      components:
+    
+    prize:
+      model: PiQuizPrize
+      name: "Prize|Prizes"
+      front: false
+      page: false
+      credentials: pi_quiz_superuser
+      components:
+    
+    predefinedAnswer:
+      model: PiQuizPredefinedAnswer
+      name: "Predefined answer|Predefined answers"
+      front: false
+      page: false
+      credentials: pi_quiz_superuser
+      components:
+    
+    response:
+      model: PiQuizResponse
+      name: "User response|User responses"
+      front: false
+      page: false
+      credentials: pi_quiz_superuser
+      components:

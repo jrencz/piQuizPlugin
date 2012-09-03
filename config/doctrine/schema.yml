@@ -1,0 +1,152 @@
+PiQuiz:
+  actAs:
+    Timestampable:
+    DmBlameable:
+    DmTaggable:
+  columns:
+    name:
+      type: string(255)
+      notnull: true              #nazwa jest obowiązkowa
+    question:                    
+      type: clob                 
+      extra: markdown            # można formatować tekst pytania
+      notnull: true              # pytanie jest obowiązkowe
+    type:                        
+      type: enum                 
+      notnull: true              
+      values: [OPEN, PREDEFINED] # odpowiedź otwarta, jednokrotny wybór, wieloktorny wybór
+      default: "OPEN"            # domyślnie wstawiamy pytanie otwarte
+    date_start:
+      type: timestamp
+      notnull: true
+    date_end:
+      type: timestamp
+      notnull: frue 
+    media_id:                    # konkurs ma obrazek
+      type: integer                                  
+      notnull: false             # ale nieobowiązkowy
+    correct_answer:              
+      type: string(255)          
+      notnull: false             # tu z kolei null jeśli pytanie zamknięte. Albo możemy nie podac poprawnej odpowiedzi.
+                                 # warto dopisać jakieś post-validatory sfValidatorCallback do porównania wartości
+                                 # * jeśli OPEN to czy correct_answer_id === null
+                                 # * jeśli PREDEFINED to czy correct_answer_id !== null i correct_answer === null
+                                 # * czy jeśli PREDEFINED to dowiązane więcej niż 1 odpowiedź
+    is_resolved:                 # czy konkurs jest rozstrzygnięty (czyli wybrani są zwycięzcy)
+      type: boolean
+      default: false             # dokąd nie oznaczymy że tak - nie jest.
+  relations:
+    Answers:
+      class: PiQuizPredefinedAnswer
+      local: id
+      foreign: quiz_id
+      type: many
+      foreignType: one
+      foreignAlias: Quiz
+      onDelete: CASCADE 
+    Prizes:
+      # konkurs może mieć wiele nagród do wyboru. Użytkownik może wybrać nagrodę
+      class: PiQuizPrize
+      local: id
+      foreign: quiz_id
+      type: many
+      foreignType: one
+      foreignAlias: Quiz
+      onDelete: CASCADE
+    Image:
+      class: DmMedia
+      local: media_id
+      foreign: id
+      onDelete: RESTRICT
+  
+
+
+# Nagrody. Każdy konkurs powinien mieć przynajmniej jedną nagordę.
+PiQuizPrize:
+  columns:
+    name:                        # nazwa nagrody
+      type: string(255)
+    quantity:                    # liczność nagrody. W Validatorze ustawi
+      type: integer
+      notnull: true
+      default: 1
+      unsigned: true
+    quiz_id:
+      type: integer
+      notnull: true              # nagroda musi być przypisana do quizu. Inaczej nie ma sensu
+    shipment:
+      type: string(255)
+      comment: "metoda odbioru nagrody, opis. Wykorzystywany przt powiadomieniach"
+  
+
+
+# Możliwe odpowiedzi
+PiQuizPredefinedAnswer:
+  columns:
+    answer:
+      type: string(255)
+      notnull: true              # treść odpowiedzi jest obowiązkowa
+    quiz_id:
+      type: integer
+      notnull: true              # odpowiedź musi być przypisana do quizu. Inaczej nie ma sensu
+    is_correct:
+      type: boolean
+      default: false
+
+
+# Zapis odpowiedzi uzytkownika
+PiQuizResponse:
+  actAs:
+    Timestampable:
+    piConfirmable:
+  columns:
+    ip:
+      type: string(45)
+      comment: "maksymalna długość adresu IPv6 z tunelowaniem v4"
+      notnull: true
+    quiz_id:
+      type: integer
+      notnull: true              # zgłoszenie musi być przypisane do quizu. Inaczej nie ma sensu    
+    prize_id:
+      type: integer
+      notnull: true
+      comment: "wybrana przez użytkownika nagroda" 
+    open_answer:
+      type: string(255)
+      notnull: false
+      comment: "odpowiedź na pytanie otwarte. Null jeśli konkurs ma pytania zamknięte"
+    is_open_answer_correct: 
+      type: boolean
+      default: false
+      comment: "czy podana odpowiedź jest poprawna"
+      notnull: true
+    is_winner:
+      type: boolean
+      default: false
+      notnull: true
+    name:
+      type: string(255)
+      notnull: true
+    surname:
+      type: string(255)
+      notnull: true
+    predefined_answer_id:
+      type: integer
+      notnull: false
+  relations:
+    Quiz:
+      class: PiQuiz
+      local: quiz_id
+      foreign: id
+    Prizes:
+      class: PiQuizPrize
+      local: prize_id
+      foreign: id
+    PredefinedAnswer:
+      class: PiQuizPredefinedAnswer
+      local: predefined_answer_id
+      foreign: id
+    
+  
+
+      

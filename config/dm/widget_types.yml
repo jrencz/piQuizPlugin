@@ -1,0 +1,7 @@
+piQuizPlugin:
+  takePart:
+    form_class: piQuizTakePartForm
+    view_class: piQuizTakePartView
+  list:
+    form_class: piQuizListForm
+    view_class: piQuizListView  

@@ -1,0 +1,5 @@
+all:
+  piQuizPlugin:
+    winnerNotificationEmailTemplate: pi_quiz_winner_notification
+    resolverNotificationTemplate: pi_quiz_resolver_notification
+    responseVerificationTemplate: pi_quiz_response_verification

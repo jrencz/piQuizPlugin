@@ -1,0 +1,46 @@
+.pi_quiz_state {
+  width:      32px;
+  height:     32px;
+  display:    block;
+  background: url('../../images/icons.png') no-repeat;
+}
+.pi_quiz_state_current  { background-position: 0px   0px; }
+.pi_quiz_state_pending  { background-position: 0px -32px; }
+.pi_quiz_state_resolved { background-position: 0px -64px; }
+.pi_quiz_state_upcoming { background-position: 0px -96px; }
+
+
+.sf_admin_action_reportupcoming a:before,
+.sf_admin_action_reportcurrent a:before,
+.sf_admin_action_reportpending a:before,
+.sf_admin_action_reportresolved a:before,
+.pi_quiz_action {
+  height:     16px;
+  display:    block;
+  background: url('../../images/icons.png') no-repeat;
+}
+
+.pi_quiz_action { padding-left:18px; }
+
+.sf_admin_action_reportupcoming a:before,
+.sf_admin_action_reportcurrent a:before,
+.sf_admin_action_reportpending a:before,
+.sf_admin_action_reportresolved a:before {
+  width:      16px;
+  content:    "";
+  float:      left;
+  position:   relative;
+  top:       -1px;
+  left:       0;
+}
+.sf_admin_action_reportcurrent a:before  { background-position: -64px   0px; }
+.sf_admin_action_reportpending a:before  { background-position: -64px -16px; }
+.sf_admin_action_reportresolved a:before { background-position: -64px -32px; }
+.sf_admin_action_reportupcoming a:before { background-position: -64px -48px; }
+
+.pi_quiz_action_showWinnerList { background-position: -80px   0px; }
+.pi_quiz_action_sendWinnerList { background-position: -80px -16px; }
+
+.sf_admin_date {
+  white-space:nowrap;
+}

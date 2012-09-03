@@ -1,0 +1,8 @@
+all:
+  credentials: pi_quiz_creator
+resolve:
+  credentials: pi_quiz_resolver
+closeAndResolve:
+  credentials: pi_quiz_resolver
+sendWinnerList:
+  credentials: pi_quiz_resolver

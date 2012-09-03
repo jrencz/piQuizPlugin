@@ -1,0 +1,40 @@
+generator:
+  class: dmAdminDoctrineGenerator
+  param:
+    model_class: PiQuizPrize
+    theme: dmAdmin
+    non_verbose_templates: true
+    with_show: false
+    route_prefix: prize
+    with_doctrine_route: false
+    config:
+      actions: ~
+      fields:
+        pi_quiz_list:
+          label: Quizzes
+      list:
+        display:
+          - '=name'
+          - pi_quiz_response_list
+          - quiz_id
+          - quantity
+        sort:
+          - name
+          - asc
+        table_method: getAdminListQuery
+        table_count_method: ~
+        sortable: false
+      filter:
+        display:
+          - name
+          - quantity
+      form:
+        display:
+          NONE: [name]
+          Quizzes: [quiz_id]
+          'User responses': [pi_quiz_response_list]
+          Others: [quantity, shipment]
+        class: PiQuizPrizeAdminForm
+        fields: {  }
+      edit: ~
+      new: ~

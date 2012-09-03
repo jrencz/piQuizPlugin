@@ -1,0 +1,50 @@
+.pi_quiz_plugin_take_part .dm_form_elements,
+.pi_quiz_plugin_take_part .radio_list {
+  width:400px;
+  margin-left:0;
+}
+.pi_quiz_plugin_take_part .radio_list label {
+  float:left;
+}
+
+.pi_quiz_plugin_take_part .dm_form_elements > li input {
+  border: 1px solid lightgray;
+  -webkit-border-radius: 3px;
+  -khtml-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  -moz-box-shadow: 0 1px 2px #888888 inset;
+  -khtml-box-shadow: 0 1px 2px #888888 inset;
+  -webkit-box-shadow: 0 1px 2px #888 inset;
+  box-shadow: 0 1px 2px #888 inset;
+  border-color: #888 #AAA #B6B6B6;
+}
+.pi_quiz_plugin_take_part .dm_form_elements > li input[type="text"],
+.pi_quiz_plugin_take_part .dm_form_elements > li input[type="submit"],
+.pi_quiz_plugin_take_part .dm_form_elements > li select,
+.pi_quiz_plugin_take_part .dm_form_elements > li label {
+  width:240px;
+}
+.pi_quiz_plugin_take_part .dm_form_elements > li {
+  position:relative;
+}
+.pi_quiz_plugin_take_part .error_list  {
+  position: absolute;
+  margin-left: 0px;
+  left: 260px;
+  background: #FDDDDD;
+  padding: 7px 15px;
+  border-radius: 3px;
+  color: #666;
+  font-family: 'PT Sans', sans-serif;
+  top: 15px;
+}
+.pi_quiz_plugin_take_part .error_list > li {
+  list-style-type: disc;
+  margin-left: 15px;
+}                              
+
+.error_list + label + input,
+.error_list + label + ul.radio_list {
+  background: #FDDDDD;
+}

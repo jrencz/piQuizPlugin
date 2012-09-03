@@ -1,0 +1,4 @@
+all:
+  js:
+    cdn:
+      piQuizPlugin.dataTable: 'http://cdnjs.cloudflare.com/ajax/libs/datatables/1.9.2/jquery.dataTables.min.js'

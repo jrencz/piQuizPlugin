@@ -1,0 +1,24 @@
+.DataTables_sort_wrapper,
+.fg-toolbar {
+  position: relative;
+}
+.DataTables_sort_icon,
+.dataTables_filter,
+.dataTables_paginate  
+{
+  position:absolute;
+  right:0;
+  top:0;
+}
+.dataTables_filter,
+.dataTables_length,
+.dataTables_info,
+.dataTables_paginate
+{
+  padding:3px;
+}
+.fg-button {
+  background: white !important;
+  padding: 1px 3px;
+  margin: 1px;
+}

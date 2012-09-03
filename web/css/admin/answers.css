@@ -1,0 +1,10 @@
+#answers li {
+  list-style-type:lower-alpha;
+  list-style-position:inside;
+}                            
+#answers li:hover {
+  background:teal;
+}                 
+#answers li.correct {
+  background:green;
+}

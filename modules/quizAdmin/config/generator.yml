@@ -1,0 +1,92 @@
+generator:
+  class: dmAdminDoctrineGenerator
+  param:
+    model_class: PiQuiz
+    theme: dmAdmin
+    non_verbose_templates: true
+    with_show: false
+    route_prefix: quiz
+    with_doctrine_route: false
+    config:
+      actions: ~
+      fields:
+        prizes_list:
+          label: Prizes
+        tags_list:
+          label: Tags
+        is_resolved:
+          label: Resolved
+        correct_answer_id:
+          label: 'Correct predefined answer'
+      list:
+        actions:
+          _new:
+            title: "Add"
+          reportUpcoming:
+            title: "Filter upcoming quizzes"
+            label: "Upcoming quizzes" 
+          reportCurrent:
+            title: "Filter current quizzes"
+            label: "Current quizzes"
+          reportPending:
+            title: "Filter pending quizzes"
+            label: "Pending quizzes"
+          reportResolved:
+            title: "Filter resolved quizzes"
+            label: "Resolved quizzes"          
+        display:
+          - '=name'
+          - created_by
+          - created_at
+          - date_start
+          - date_end
+          - _state
+          - _responseCount
+        sort:
+          - created_at
+          - desc
+        table_method: getAdminListQuery
+        table_count_method: ~
+        sortable: false
+        loremize: false
+      filter:
+        display:
+          - name
+          - question
+          - is_resolved
+          - is_pending
+          - is_current
+          - is_upcoming
+          - type
+          - date_start
+          - date_end
+          - created_at
+          - updated_at
+          - created_by
+          - updated_by
+        fields:
+          is_pending:
+            label: Pending
+          is_current:
+            label: Current
+          is_upcoming:
+            label: Upcoming
+      form:
+        display:
+          NONE: [name, type, date_start, date_end]
+          Question: [question]
+          "Predefined answers": [predefined_answer_form, Answers] 
+          Answers: [correct_answer]
+          Prizes: [prize_form, Prizes]
+          Media: [media_id_form, media_id_view]
+          Meta: [created_by, updated_by, tags]
+        class: PiQuizAdminForm
+        fields: 
+          Prizes:
+            label: "Connected prizes"
+          prize_form:
+            label: "Add new prize"
+          predefined_answer_form:
+            label: "Add new answer"
+      edit: ~
+      new: ~

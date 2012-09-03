@@ -1,0 +1,28 @@
+js:
+
+  piQuizPlugin:
+    
+    takePartView:      takePartView 
+    takePartForm:      takePartForm
+    
+    answers:           admin/answers
+    
+    quizForm:          admin/quizForm
+    sfWidgetFormInputQuantity: sfWidgetFormInputQuantity
+    
+    resolver:          admin/resolver
+    winnersList:       admin/winnersList
+css:
+
+  piQuizPlugin:
+    
+    takePartView:      takePartView
+    
+    answers:           admin/answers
+    
+    quizForm:          admin/quizForm
+    sfWidgetFormInputQuantity: sfWidgetFormInputQuantity
+    dataTable:         admin/dataTable
+    resolver:          admin/resolver
+    quizList:          admin/quizList
+    
