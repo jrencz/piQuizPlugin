@@ -20,5 +20,6 @@ abstract class PluginPiQuizPrizeForm extends BasePiQuizPrizeForm
     }  
     $this->widgetSchema['quantity'] = new sfWidgetFormInputQuantity();
     
+    unset($this['pi_quiz_response_list']);
   }
 }
