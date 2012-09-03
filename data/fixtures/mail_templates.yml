@@ -1,0 +1,108 @@
+DmMailTemplate:
+  DmMailTemplate_1:
+    name: pi_quiz_response_verification
+    vars: 'name, quiz_name, surname, user_email, verification_link'
+    created_at: '2012-09-03 17:21:16'
+    updated_at: '2012-09-03 17:21:16'
+  DmMailTemplate_2:
+    name: pi_quiz_resolver_notification
+    vars: 'message, name, quiz_name, surname, user_email'
+    created_at: '2012-09-03 17:21:16'
+    updated_at: '2012-09-03 17:21:16' 
+  DmMailTemplate_3:
+    name: pi_quiz_winner_notification
+    vars: 'message, name, prize_name, quiz_name, resolver, shipment, surname, user_email'
+    created_at: '2012-09-03 17:21:16'
+    updated_at: '2012-09-03 17:21:16'        
+
+DmMailTemplateTranslation:
+  DmMailTemplateTranslation_1_en:
+    DmMailTemplate: DmMailTemplate_1
+    description: 'Mail with verification relink sent to quiz participant'
+    subject: 'Verify your quiz response'
+    body: "Hi %name% %surname%,<br>\r\n<br>\r\n(this message is meant to be seen by owner of  <strong>%user_email%</strong> mailbox. If it's not you - please ignore it).<br>\r\n<br>\r\nThank you for your participation in <strong>%quiz_name%</strong> quiz .<br>\r\n<br>\r\n<strong>To confirm your participation please click link below:</strong><br>\r\n%verification_link%<br>\r\n"
+    from_email: webmaster@domain.com
+    to_email: '%user_email%'
+    cc_email: null
+    bcc_email: null
+    reply_to_email: null
+    sender_email: null
+    list_unsuscribe: null
+    is_html: true
+    is_active: true
+    lang: en
+  DmMailTemplateTranslation_2_en:
+    DmMailTemplate: DmMailTemplate_2
+    description: 'Winners list sent to quiz resolver'
+    subject: 'Quiz has been resolved'
+    body: "Hi %name% %surname%,<br>\r\n<br>\r\n(this message is meant to be seen by owner of  <strong>%user_email%</strong> mailbox. If it's not you - please ignore it).<br>\n\r<br>\n\rList of winners in <strong>%quiz_name%</strong> quizz<br>\n\r%message%\n\r"
+    from_email: webmaster@domain.com
+    to_email: '%user_email%'
+    cc_email: null
+    bcc_email: null
+    reply_to_email: null
+    sender_email: null
+    list_unsuscribe: null
+    is_html: true
+    is_active: true
+    lang: en
+  DmMailTemplateTranslation_3_en:
+    DmMailTemplate: DmMailTemplate_3
+    description: 'Notification for quiz winners'
+    subject: 'You won!'
+    body: "Hi %name% %surname%,<br>\r\n<br>\r\n(this message is meant to be seen by owner of  <strong>%user_email%</strong> mailbox. If it's not you - please ignore it).<br>\n\r<br>\n\rWe're pleased to inform You won in our quiz <strong>%quiz_name%</strong>.<br>\n\rYou won: <strong>%prize_name%</strong><br>\n\rShipment: <strong>%shipment%</strong><br>\n\r<br>\n\r<u>Additional information</u>:\n\r%message%\n\r"
+    from_email: '%resolver%'
+    to_email: '%user_email%'
+    cc_email: null
+    bcc_email: null
+    reply_to_email: null
+    sender_email: null
+    list_unsuscribe: null
+    is_html: true
+    is_active: true
+    lang: en
+  DmMailTemplateTranslation_1_pl:
+    DmMailTemplate: DmMailTemplate_1
+    description: 'Szablon wiadomości wysyłanej do użytkownika, który wziął udział w konkursie'
+    subject: 'Weryfikacja zgłoszenia'
+    body: "Cześć %name% %surname%,<br>\r\n<br>\r\n(ta wiadomość jest kierowana do właściciela skrzynki <strong>%user_email%</strong>, jeśli to nie Ty - zignoruj ją).<br>\r\n<br>\r\nDziękujemy za wzięcie udziału w konkursie <strong>%quiz_name%</strong>.<br>\r\n<br>\r\n<strong>By Twoje zgłoszenie brało udział w losowaniu nagród kliknij poniższy link</strong><br>\r\n%verification_link%<br>\r\n"
+    from_email: webmaster@domain.com
+    to_email: '%user_email%'
+    cc_email: null
+    bcc_email: null
+    reply_to_email: null
+    sender_email: null
+    list_unsuscribe: null
+    is_html: true
+    is_active: true
+    lang: pl
+  DmMailTemplateTranslation_2_pl:
+    DmMailTemplate: DmMailTemplate_2
+    description: 'Lista zwycięzców w konkursie.'
+    subject: 'Konkurs został rozwiązany'
+    body: "Cześć %name% %surname%,<br>\n\r<br>\n\r(ta wiadomość jest kierowana do właściciela skrzynki <strong>%user_email%</strong>, jeśli to nie Ty - zignoruj ją).<br>\n\r<br>\n\rLista zwycięzców w konkursie <strong>%quiz_name%</strong><br>\n\r%message%\n\r"
+    from_email: webmaster@domain.com
+    to_email: '%user_email%'
+    cc_email: null
+    bcc_email: null
+    reply_to_email: null
+    sender_email: null
+    list_unsuscribe: null
+    is_html: true
+    is_active: true
+    lang: pl
+  DmMailTemplateTranslation_3_pl:
+    DmMailTemplate: DmMailTemplate_3
+    description: 'Powiadomienie o wygranej w konkursie'
+    subject: 'Gratulujemy wygranej w konkursie'
+    body: "Cześć %name% %surname%,<br>\n\r<br>\n\r(ta wiadomość jest kierowana do właściciela skrzynki <strong>%user_email%</strong>, jeśli to nie Ty - zignoruj ją).<br>\n\r<br>\n\rZ przyjemnością informujemy, że twoje zgłoszenie w konkursie <strong>%quiz_name%</strong> zostało wylosowane.<br>\n\rTwoja nagroda to: <strong>%prize_name%</strong><br>\n\rSzczegóły odbioru nagrody: <strong>%shipment%</strong><br>\n\r<br>\n\r<u>Dodatkowe informacje</u>:\n\r%message%\n\r"
+    from_email: '%resolver%'
+    to_email: '%user_email%'
+    cc_email: null
+    bcc_email: null
+    reply_to_email: null
+    sender_email: null
+    list_unsuscribe: null
+    is_html: true
+    is_active: true
+    lang: pl
