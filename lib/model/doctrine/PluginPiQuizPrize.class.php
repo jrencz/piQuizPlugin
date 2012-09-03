@@ -12,5 +12,8 @@
  */
 abstract class PluginPiQuizPrize extends BasePiQuizPrize
 {
-
+  public function __representation()
+  {
+    return $this->get('name') . sprintf(" (%s)", $this->get('quantity'));
+  }
 }
