@@ -17,6 +17,17 @@ class quizAdminActions extends autoQuizAdminActions
   const CREATOR  = "creator";
   
   /**
+   * Executes Index action
+   *
+   * @param sfRequest $request A request object
+   * @author Jarek Rencz <jaroslaw@rencz.pl>
+   */
+  public function executeIndex(sfWebRequest $request)
+  {
+    $this->getResponse()->addStylesheet('piQuizPlugin.quizList');
+    parent::executeIndex($request);
+  }
+  /**
    * Executes Edit action. Prevents users with insufficient credentials to edit resolved quizzes
    *
    * @param sfRequest $request A request object
