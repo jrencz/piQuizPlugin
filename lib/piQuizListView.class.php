@@ -8,15 +8,22 @@ class piQuizListView extends dmWidgetPluginView
   public function configure()
   {
     parent::configure();
+  }
+  
+  /**
+   * adds variables needed by ajax pager
+   * 
+   * @see quizComponents
+   */
+  public function getViewVars()
+  {
+    $viewVars = parent::getViewVars(); 
     
-    $this->addJavascript(array(
-      'piQuizPlugin.listView'
-    ));
+    $viewVars['page'] = $this->getService('request')->getParameter('page', 1);
+    $viewVars['dm_widget'] = $this->widget;
     
-    $this->addStylesheet(array(
-      'piQuizPlugin.listView'
-    ));
-
+    return $viewVars;
+    
   }
   
   protected function doRender()

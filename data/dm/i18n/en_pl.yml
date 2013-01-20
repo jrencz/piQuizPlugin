@@ -1,4 +1,3 @@
-# Nazwy
 "Quiz": "Konkurs"
 "Quizzes": "Konkursy"
 "Prize": "Nagroda"
@@ -47,7 +46,6 @@
 "Response count": "Liczba zgłoszeń"
 "Notification sent": "Powiadomienie wysłane"
 "Return to quiz list": "Wróć do listy konkursów"
-# Komunikaty 
 "Filter applied: %s": "Włączono filtr: %s"
 "Resolve": "Rozwiąż"
 "Close now and resolve": "Zakończ teraz i rozwiąż"
@@ -65,3 +63,6 @@
 "not unique": "Ten email już brał udział w tym konkursie"
 "Cannot edit current, pending or resolved quizzes.": "Nie możesz edytować konkursów trwających, zakończonych i rozstrzygniętych."
 "Insufficient permissions.": "Niewystarczające uprawnienia."
+"Only not archived": "Tylko niezarchiwizowane"
+"Display only quizzes that are currently running or that are not yet resolved": "Pokaż tylko konkursy trwające lub nierozwiazane"
+"This quiz is already closed": "Ten konkurs jest już zamknięty"

@@ -18,7 +18,6 @@ class piQuizPluginConfiguration extends sfPluginConfiguration
   public function initialize()
   { 
     $this->dispatcher->connect('dm.context.loaded', array($this,'listenToDmContextLoaded'));
-    
   }
   public function listenToDmContextLoaded(sfEvent $e)
   {

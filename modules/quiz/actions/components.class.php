@@ -14,10 +14,17 @@ class quizComponents extends myFrontModuleComponents
   {
     $query = $this->getListQuery();
     
+    if ($this->onlyNotArchived)
+    {
+      $query->andWhere('
+        (' . $query->getRootAlias() . '.date_end > NOW()) 
+        OR 
+        (' . $query->getRootAlias() . '.is_resolved = ?)', 0
+      );
+    }
+ 
     $this->quizPager = $this->getPager($query);
-    
-    
+    $this->quizPager->setOption('ajax', true);
+
   }
-
-
 }
