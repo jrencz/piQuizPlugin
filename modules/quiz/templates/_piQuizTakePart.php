@@ -11,7 +11,7 @@ if ((($end > $now) && ($start < $now)) || ($end < $now))
   echo _tag('h2', __("Quiz") . ": " . $quiz->getName());
 
   echo _tag('h3', __("Question") . ":");
-  echo markdown($quiz->getQuestion());
+  echo _markdown($quiz->getQuestion());
 
   echo _tag('h3', __('Quiz duration'));
     $start = new DateTime($quiz->dateStart);
