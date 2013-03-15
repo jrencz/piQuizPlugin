@@ -51,7 +51,7 @@ class PiQuizResponseFrontForm extends PluginPiQuizResponseForm
     }
     
     $this->setValidator('email', new sfValidatorUniqueEmail(array(
-      'query' => Doctrine_Core::getTable('PiQuizResponse')->createQuery('r'),  
+      'query' => Doctrine_Core::getTable('PiQuizResponse')->createQuery('r')->where('r.id = ?', $this->guessId()),  
     )));
     
     unset(
