@@ -78,6 +78,11 @@ class PiQuizAdminForm extends BasePiQuizForm
     {
       $newPredefinedAnswerForm->setDefault('quiz_id', $this->object->id);
     }
+    
+    $newPredefinedAnswerForm->setWidget('pi_quiz_response_list', new sfWidgetFormInputHidden());
+    $newPredefinedAnswerForm->setValidator('pi_quiz_response_list', new sfValidatorPass());
+    
+    
       $newPredefinedAnswerForm->setValidator('answer', new sfValidatorString(array('max_length' => 255, 'required' => false, )));
     $this->embedForm('predefined_answer_form', $newPredefinedAnswerForm);
     $this->embedRelation('Answers');
