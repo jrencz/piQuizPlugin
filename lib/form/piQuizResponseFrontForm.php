@@ -16,6 +16,7 @@ class PiQuizResponseFrontForm extends PluginPiQuizResponseForm
       'open_answer'            => new sfWidgetFormInputText(),
       'predefined_answer_id'   => new sfWidgetFormDoctrineChoice(array(
                                   'model' => $this->getRelatedModelName('PredefinedAnswer'), 
+                                  'query' => Doctrine_Core::getTable('PiQuizPredefinedAnswer')->createQuery('pa')->where('pa.quiz_id = ?', $this->guessId()),  
                                   'add_empty' => false,
                                   'expanded' => true
                                 )),

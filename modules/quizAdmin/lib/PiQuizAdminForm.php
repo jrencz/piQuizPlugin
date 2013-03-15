@@ -83,9 +83,29 @@ class PiQuizAdminForm extends BasePiQuizForm
     $newPredefinedAnswerForm->setValidator('pi_quiz_response_list', new sfValidatorPass());
     
     
-      $newPredefinedAnswerForm->setValidator('answer', new sfValidatorString(array('max_length' => 255, 'required' => false, )));
+    $newPredefinedAnswerForm->setValidator('answer', new sfValidatorString(array('max_length' => 255, 'required' => false, )));
     $this->embedForm('predefined_answer_form', $newPredefinedAnswerForm);
-    $this->embedRelation('Answers');
+    
+    
+      $subForm = new sfForm();
+
+      foreach ($this->getObject()->Answers as $index => $childObject)
+      {
+        $form = new PiQuizPredefinedAnswerForm($childObject);
+        unset($form['pi_quiz_response_list']);
+        unset($form['quiz_id']);
+        $form
+          ->setWidget('delete', new sfWidgetFormInputCheckbox())
+          ->setValidator('delete', new sfValidatorBoolean());
+        
+
+        $subForm->embedForm($index, $form);
+      }
+
+      $this->embedForm('Answers', $subForm);
+    
+    
+   
     
     
         
@@ -193,7 +213,7 @@ class PiQuizAdminForm extends BasePiQuizForm
     $predefinedAnswerForm = $this->getValue('predefined_answer_form');
     
     $newPredefinedAnswer = new PiQuizPredefinedAnswer();
-    if ($newPredefinedAnswer['answer'] != '')
+    if ($predefinedAnswerForm['answer'] != '')
     {
       $newPredefinedAnswer
         ->setAnswer($predefinedAnswerForm['answer'])

@@ -35,9 +35,9 @@ class quizActions extends myFrontModuleActions
 
         $this->responseObject->setStatusSuccess();
         $this->responseObject->setData(array(
-          'html'   => $this->getHelper()->tag('div', join(' ', array(
-            $this->__('Your response has been added but it\'s not verified yet.'), 
-            $this->__('Check your e-mail and click verification link.')
+          'html'   => $this->getHelper()->tag('p.info', join(' ', array(
+            $this->__("Your response has been added but it's not verified yet") . ".", 
+            $this->__("Check your e-mail and click verification link") . "."
           ))),
         ));
       }

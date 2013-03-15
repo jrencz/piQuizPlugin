@@ -32,8 +32,8 @@ if ((($end > $now) && ($start < $now)) || ($end < $now))
     echo _close('p');
   
     if (get_class($form['prize_id']->getWidget()) == "sfWidgetFormInputHidden") {
-      echo _tag('h3', __('Prize'));
       $prize = $quiz->getPrizes()->getIterator()->current();
+      echo _tag('h3', ($prize->getQuantity() > 1) ? __('Prizes') : __("Prize"));
       echo _tag('p', $prize->getName() . sprintf(" (%s)", $prize->getQuantity()));
     }
   echo _close('div.column_center');
