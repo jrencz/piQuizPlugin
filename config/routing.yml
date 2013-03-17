@@ -1,4 +1,0 @@
-piQuizVerification:
-    url: /konkurs/weryfikacja/:quizId/:token
-    param: {module: dmFront, action: page, dm_page: konkurs/weryfikacja}
-    requirements: {quizId: '\d+', token: '[a-z0-9]{32}', sf_method: get }
