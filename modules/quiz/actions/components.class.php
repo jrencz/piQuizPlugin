@@ -14,6 +14,8 @@ class quizComponents extends myFrontModuleComponents
   {
     $query = $this->getListQuery();
     
+    $query->andWhere($query->getRootAlias() . '.date_start < NOW()');
+    
     if ($this->onlyNotArchived)
     {
       $query->andWhere('
