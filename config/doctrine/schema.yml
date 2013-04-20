@@ -138,7 +138,7 @@ PiQuizResponse:
       class: PiQuiz
       local: quiz_id
       foreign: id
-      OnDelete: CASCADE
+      onDelete: CASCADE
     Prizes:
       class: PiQuizPrize
       local: prize_id
