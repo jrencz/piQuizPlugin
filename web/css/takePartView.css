@@ -51,6 +51,7 @@
 }
 .pi_quiz_plugin_take_part .dm_form_elements > li {
   position:relative;
+  list-style:none;
 }
 
 
