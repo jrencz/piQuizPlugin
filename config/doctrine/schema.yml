@@ -58,6 +58,14 @@ PiQuiz:
       local: media_id
       foreign: id
       onDelete: RESTRICT
+    Responses:
+      class: PiQuizResponse
+      local: id
+      foreign: quiz_id
+      type: many
+      foreignType: one
+      foreignAlias: Quiz
+      onDelete: Cascade
   
 
 
