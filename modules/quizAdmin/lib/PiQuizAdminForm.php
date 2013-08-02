@@ -53,15 +53,18 @@ class PiQuizAdminForm extends BasePiQuizForm
     $this->setDefault('date_end',      $end->getTimestamp()); 
     
     $newPrizeForm = new PiQuizPrizeForm();
+
     $newPrizeForm->setWidget('quiz_id', new sfWidgetFormInputHidden());
-    if ($this->isNew()) 
+
+    if ($this->isNew())
     {
       $newPrizeForm->setDefault('quiz_id', '');
       $newPrizeForm->setValidator('quiz_id', new sfValidatorPass());
-    }                                                                                  
+    }
     else
     {
       $newPrizeForm->setDefault('quiz_id', $this->object->id);
+      $newPrizeForm->validatorSchema['shipment'] = new sfValidatorPass();
     }
     $this->embedForm('prize_form', $newPrizeForm);
     
