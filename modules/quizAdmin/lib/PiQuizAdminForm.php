@@ -209,7 +209,8 @@ class PiQuizAdminForm extends BasePiQuizForm
         ->setName($prizeForm['name'])
         ->setQuizId($this->getObject()->getId())
         ->setQuantity($prizeForm['quantity'])
-        ->save();                  
+        ->setShipment($prizeForm['shipment'])
+        ->save();
     }
     unset($this->embeddedForms['prize_form']);
     
